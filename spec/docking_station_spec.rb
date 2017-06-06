@@ -1,8 +1,8 @@
 require "docking_station.rb"
 
 describe DockingStation do
+  let(:docking_station) { DockingStation.new}
   it "responds to release_bike" do
-    # docking_station = DockingStation.new
-    expect(subject).to respond_to :release_bike
+    expect(docking_station).to respond_to :release_bike
   end
 end
