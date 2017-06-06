@@ -4,11 +4,9 @@ require "bike.rb"
 describe DockingStation do
   let(:docking_station) { DockingStation.new}
 
-  it "responds to release_bike" do
-    expect(docking_station).to respond_to :release_bike
-  end
-
   it "gets a bike and expects it to be working" do
+    bike = Bike.new
+    docking_station.dock_bike(bike)
     bike = docking_station.release_bike
     expect(bike).to be_working
   end
@@ -18,7 +16,16 @@ describe DockingStation do
     expect(docking_station.dock_bike(bike)).to eq bike
   end
 
-  it "checks if there is an available bike" do
-    expect(docking_station).not_to be_empty
+  describe "#release_bike" do
+    it "can release a bike if there is a bike available" do
+      bike = Bike.new
+      docking_station.dock_bike(bike)
+      expect(docking_station.release_bike).to eq bike
+    end
+
+    it "won't release a bike if there are none available" do
+        expect{(docking_station.release_bike)}.to raise_error("No bikes available")
+    end
+
+    end
   end
-end

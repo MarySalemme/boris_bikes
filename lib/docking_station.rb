@@ -2,14 +2,11 @@ require "./lib/bike.rb"
 
 class DockingStation
 
-  attr_reader :bike
-
-  def empty?
-    false
-  end
+  attr_accessor :bike
 
   def release_bike
-    @bike = Bike.new
+    raise "No bikes available" unless @bike
+    @bike
   end
 
   def dock_bike(bike)
