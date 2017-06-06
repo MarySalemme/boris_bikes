@@ -1,4 +1,3 @@
-
 require "bike.rb"
 
 describe Bike do
