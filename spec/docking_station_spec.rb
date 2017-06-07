@@ -11,10 +11,18 @@ describe DockingStation do
     expect(bike).to be_working
   end
 
+describe "#dock_bike" do
   it "docks a bike" do
     bike = Bike.new
     expect(docking_station.dock_bike(bike)).to eq bike
   end
+
+
+  it "won't dock a bike if there is already one docked" do
+      docking_station.dock_bike(Bike.new)
+    expect{docking_station.dock_bike(Bike.new)}.to raise_error("Bike already docked")
+  end
+end
 
   describe "#release_bike" do
     it "can release a bike if there is a bike available" do
@@ -26,6 +34,5 @@ describe DockingStation do
     it "won't release a bike if there are none available" do
         expect{(docking_station.release_bike)}.to raise_error("No bikes available")
     end
-
-    end
   end
+end
