@@ -32,7 +32,11 @@ end
     end
 
     it "won't release a bike if there are none available" do
-        expect{(docking_station.release_bike)}.to raise_error("No bikes available")
+      expect{(docking_station.release_bike)}.to raise_error("No bikes available")
     end
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1a107631a907182fd38544976467b9e2bcac09a3
   end
 end
