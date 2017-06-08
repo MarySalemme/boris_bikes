@@ -4,6 +4,20 @@ require "bike.rb"
 describe DockingStation do
   let(:docking_station) { DockingStation.new}
 
+  describe "capacity" do
+    it "can be set by the user" do
+      docking_station = DockingStation.new(25)
+      expect(docking_station.capacity).to eq (25)
+    end
+
+    context "when nothing is provided by the user" do
+      it "defaults to 20" do
+        docking_station = DockingStation.new
+        expect(docking_station.capacity).to eq(20)
+      end
+    end
+  end
+
   it "gets a bike and expects it to be working" do
     bike = Bike.new
     docking_station.dock(bike)
