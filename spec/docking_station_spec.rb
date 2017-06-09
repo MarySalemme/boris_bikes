@@ -2,7 +2,7 @@ require "docking_station.rb"
 require "bike.rb"
 
 describe DockingStation do
-  let(:docking_station) { DockingStation.new}
+  let(:docking_station) {DockingStation.new}
 
   describe "capacity" do
     it "can be set by the user" do
