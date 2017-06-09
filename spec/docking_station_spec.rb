@@ -25,12 +25,18 @@ describe DockingStation do
     expect(bike).to be_working
   end
 
-describe "#dock" do
-  it "won't dock a bike if full" do
-    DockingStation::DEFAULT_CAPACITY.times { docking_station.dock Bike.new }
-    expect{docking_station.dock(Bike.new)}.to raise_error("Docking station is full")
+  describe "#dock" do
+    it "won't dock a bike if full" do
+      DockingStation::DEFAULT_CAPACITY.times { docking_station.dock Bike.new }
+      expect{docking_station.dock(Bike.new)}.to raise_error("Docking station is full")
+    end
+
+    # it "will learn from the user if the bike is broken" do
+    #   bike = Bike.new
+    #   docking_station.dock(bike)
+    #   expect(bike).not_to be_working
+    # end
   end
-end
 
   describe "#release_bike" do
     it "can release a bike if there is a bike available" do

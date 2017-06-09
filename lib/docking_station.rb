@@ -18,8 +18,15 @@ class DockingStation
 
   def dock(bike)
     raise "Docking station is full" if full?
+    # raise "The bike is broken" if !bike.working?
     @bikes << bike
   end
+
+  def report_status(bike)
+    bike.brake
+    dock(bike)
+  end
+
 
 private
 
